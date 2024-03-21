@@ -1,0 +1,28 @@
+﻿@using SpaceWespers.Models;
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<News>
+
+<head>
+    <link href="~/css/Styles.css" rel="stylesheet">
+</head>
+<header>
+    <h1 class="left">Новости астрофизики, астрологии и космологии</h1>
+    <div class="right">
+    <form action="" method="post">
+        <input name="name" placeholder="Search" type="search">
+        <button type="submit" value="send"></button>
+    </form>
+    </div>
+</header>
+<body>
+    @foreach (var p in Model)
+    {
+        <a class="content" href=@p.dataUrl>
+            <h2 class="title">@p.dataName</h2>
+            <img src="Images/Image-@p.dataId .jpg" class="imagess">
+            <div class="date">@p.dataLoadTime</div>
+        </a>
+    }
+</body>
